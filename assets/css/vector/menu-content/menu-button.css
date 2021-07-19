@@ -1,0 +1,17 @@
+.menu__button {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration: none;
+    background-image: linear-gradient(to right, var(--red-gradient),var(--yellow-gradient))  ;
+    width: 50%;
+    height: 50%;
+    font-size: calc(1.4rem + 1.5vw);
+    color: var(--light-gray);
+    border-radius: .5rem;
+    box-shadow: 0px 1px 1px 1px var(--black);
+}
+
+.menu__button h2 {
+    color: var(--destaque-blue);
+}

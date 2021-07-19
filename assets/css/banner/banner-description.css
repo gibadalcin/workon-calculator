@@ -1,0 +1,12 @@
+.banner__description {
+
+    margin-left: 1rem;
+    color: var(--light-gray);
+    font-size: calc(.8rem + 2vw );
+    line-height: calc 1.2rem;
+}
+
+.banner__description span {
+    font-size: calc(.8rem + 2vw );
+    color:var(--destaque-blue) ;
+}

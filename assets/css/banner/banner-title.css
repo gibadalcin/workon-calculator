@@ -1,0 +1,14 @@
+.banner__title {
+    font-size: calc(1rem + 2vw );
+    line-height: calc 1.2rem;
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.banner__title span {
+    font-weight: bolder;
+}
+
+.banner__title span:last-child {
+    color: var(--destaque-blue);
+}

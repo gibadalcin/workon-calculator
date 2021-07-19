@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'base-source';
+    src: url('/assets/fonts/sansation/Sansation_Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'base-bold-italic';
+    src: url('/assets/fonts/sansation/Sansation_Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'base-light-italic';
+    src: url('/assets/fonts/sansation/Sansation_Light_Italic.ttf') format('truetype');
+}
+
+/*application fonts in home page*/
+.banner__title,
+.vector__title,
+footer {
+    font-family: 'base-source';
+}
+
+.banner__description,
+.menu__button {
+    font-family: "base-light-italic";
+}

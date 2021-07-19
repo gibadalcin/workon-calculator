@@ -1,0 +1,15 @@
+.vector__title {
+    margin: 6% 0 4% 0;
+    font-size: calc(2.2rem + 1.6vw );
+    font-weight: bolder;
+    padding: 3% 3%;
+    border-radius: .5rem;
+    color: var(--light-gray);
+}
+
+.vector__title span {
+    color: var(--destaque-blue);
+}
+
+
+

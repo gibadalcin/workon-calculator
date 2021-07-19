@@ -1,0 +1,21 @@
+html {
+    min-width: 320px;
+    max-width: 1440px;
+    font-size: 1rem;
+}
+
+.home {
+    display: flex;
+    flex-direction:column-reverse;
+    border-bottom: 5px solid var(--destaque-blue);
+    width: 99%;
+    margin: 0 0 1.5% 0;
+}
+
+@media (min-width: 760px) {
+    .home {
+        flex-direction: row;
+    }
+}
+
+

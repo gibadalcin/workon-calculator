@@ -1,0 +1,31 @@
+.vector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--lilac-base);
+    height: 99vh;
+}
+
+@media(min-width:760px) {
+    .vector {
+        width: 55%;
+    }
+}
+
+@media(min-width:900px) {
+    .vector {
+        width: 50%;
+    }
+}
+
+@media(min-width:1080px) {
+    .vector {
+        width: 45%;
+    }
+}
+
+@media(min-width:1200px) {
+    .vector {
+        width: 40%;
+    }
+}
