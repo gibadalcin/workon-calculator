@@ -13,9 +13,11 @@
     src: url('/assets/fonts/sansation/Sansation_Light_Italic.ttf') format('truetype');
 }
 
-/*application fonts in home page*/
 .banner__title,
 .vector__title,
+.calculation__title,
+.calculate__button,
+.calculation__form,
 footer {
     font-family: 'base-source';
 }

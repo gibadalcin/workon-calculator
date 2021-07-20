@@ -1,0 +1,14 @@
+.calculate__button {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin: 2% auto;
+    padding: 1rem 0;
+    background: var(--red-gradient);
+    color: var(--white);
+    font-weight: bold;
+    font-size: calc(1.1rem + 1.5vw);
+    border: none;
+    border-radius: 0.25rem;
+    transition: 1s;
+}

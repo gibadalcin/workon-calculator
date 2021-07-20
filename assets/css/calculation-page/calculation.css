@@ -1,0 +1,26 @@
+html {
+    min-width: 320px;
+    max-width: 1440px;
+    font-size: 1rem;
+}
+
+.calculation {
+    display: flex;
+    width: 100%;
+    border-bottom: 5px solid var(--destaque-blue);
+    height: 98vh;
+    margin: 0 0 1.5% 0;
+    background: no-repeat top / cover url('../../images/calculation/background-mobile2.png');
+}
+
+
+
+
+
+
+
+
+
+
+
+

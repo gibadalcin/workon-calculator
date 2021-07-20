@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8">
+        <title>Workalculation</title>
+        <link href="./assets/css/utils/normalize.css" rel="stylesheet" />
+        <link href="./assets/css/utils/reset.css" rel="stylesheet" />
+        <link href="./assets/css/footer.css" rel="stylesheet" />
+        <link href="./assets/css/utils/fonts.css" rel="stylesheet" />
+        <link href="./assets/css/utils/colors.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/calculation-form.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-title.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-labels.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-radius.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-inputDefaults.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-buttom.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <main class="calculation">
+            <form action="" class="calculation__form">
+                <h2 class="calculation__title">Calculo Rescisório</h2>
+                
+                <label class="labels" for="initial_date">Data Inicial</label>
+                <input type="date" id="initial_date" class="input__default" required placeholder="DD/MM/AAAA">
+
+                <label class="labels" for="final_date">Data de Saída</label>
+                <input type="date" id="final_date" class="input__default" required placeholder="DD/MM/AAAA">
+
+                <label class="labels" for="wage_last">Último Salário</label>
+                <input type="number" id="wage_last" class="input__default " required placeholder="R$ 00,00">
+
+                <label class="labels" for="number_of_dependents">Número de Dependentes</label>
+                <input type="number" id="number_dependents" class="input__default" required>
+
+                <label class="labels" for="reason_for_termination">Motivo da Rescisão</label>
+                <select id="reason_for_termination" class="input__default" required>
+                    <option>Selecione</option>
+                    <option>Consensual</option>
+                    <option>Pedido de Demissão</option>
+                    <option>Por Justa Causa</option>
+                    <option>Sem Justa Causa</option>
+                    <option>Acordo entre as Partes</option>
+                </select>
+
+                <fieldset class="radius">
+                    <div class="legends">
+                        <legend>Possui Férias Vencidas?</legend>
+                    </div>
+                    <div>
+                        <label for="expired__vacations">
+                            <input type="radio" name="expired" value="Sim" id="radio__expired__vacations">
+                            Sim 
+                        </label>
+                    </div>
+                    <div>
+                        <label for="no__expired__vacations"></label>
+                        <input type="radio" name="expired" value="Não" id="no__expired__vacations">
+                         Não
+                    </div>
+                    </label>
+                </fieldset>
+
+                <fieldset class="radius">
+                    <div class="legends">
+                        <legend>Cumpriu aviso Prévio?</legend>
+                    </div>
+                    <div>
+                        <label for="prior__notice">
+                            <input type="radio" name="notice" value="Sim" id="prior__notice">
+                             Sim 
+                        </label>
+                    </div>
+                    <div>
+                        <label for="no__expired__vacations">
+                        <input type="radio" name="notice" value="Não" id="no__prior__notice">
+                         Não
+                        </label>
+                    </div>
+                </fieldset>
+              
+                <button class="calculate__button">Calcular</button>
+            </form>
+            
+        </main>
+        <footer>
+            <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
+        </footer>
+    </body>
+</html>

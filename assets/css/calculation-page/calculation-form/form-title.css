@@ -1,0 +1,6 @@
+.calculation__title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: calc(1.2rem + 1.5vw);
+}

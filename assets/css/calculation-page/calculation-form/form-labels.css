@@ -1,0 +1,10 @@
+.labels {
+    display: flex;
+    width: 40%;
+    margin: auto 0;
+    margin-left: 2%;
+}
+
+.legends {
+    width: 50%;
+}

@@ -1,0 +1,16 @@
+.calculation__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    margin:.8rem auto;
+    padding: 1rem;
+    width: 98%;
+    height: 96%;
+    max-width: 600px;
+    border: 2px solid var(--destaque-blue);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    font-weight: bolder;
+    color: var(--white);
+    font-size: calc(1rem + 1vw);
+}
