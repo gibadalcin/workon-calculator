@@ -1,0 +1,8 @@
+.details__title {
+    display: flex;
+    margin: 2rem 0 0 3.4rem;
+    font-size: calc(1.8rem + 2.4vw );
+    font-weight: bolder;
+    color: var(--light-gray);
+}
+

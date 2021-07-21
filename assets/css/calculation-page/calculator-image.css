@@ -1,0 +1,10 @@
+@media(min-width:980px) {
+    .calculator__image {
+        display: flex;
+        justify-content: center;
+        margin: auto 2rem auto 0;
+        background: no-repeat 20% / contain url('/assets/images/calculation/calculator.png');
+        width: 28%;
+        height: 100%;
+    }
+}

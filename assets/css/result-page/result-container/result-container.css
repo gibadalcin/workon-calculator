@@ -1,0 +1,18 @@
+.result__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 50%;
+    margin: auto auto;
+    font-weight: bolder;
+    font-size: calc(1rem + 2vw );
+    color: var(--blue-text);
+}
+
+@media(min-width: 1000px) {
+    .result__container {
+        align-items:flex-start;
+    }
+}

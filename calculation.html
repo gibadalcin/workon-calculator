@@ -16,6 +16,8 @@
         <link href="./assets/css/calculation-page/calculation-form/form-radius.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/calculation-form/form-inputDefaults.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/calculation-form/form-buttom.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculator-image.css" rel="stylesheet" />
+
     </head>
 
     <body>
@@ -33,7 +35,7 @@
                 <input type="number" id="wage_last" class="input__default " required placeholder="R$ 00,00">
 
                 <label class="labels" for="number_of_dependents">Número de Dependentes</label>
-                <input type="number" id="number_dependents" class="input__default" required>
+                <input type="number" id="number_of_dependents" class="input__default" required placeholder="0">
 
                 <label class="labels" for="reason_for_termination">Motivo da Rescisão</label>
                 <select id="reason_for_termination" class="input__default" required>
@@ -83,6 +85,7 @@
               
                 <button class="calculate__button">Calcular</button>
             </form>
+            <section class="calculator__image"></section>
             
         </main>
         <footer>

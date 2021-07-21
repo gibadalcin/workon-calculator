@@ -5,12 +5,24 @@
     margin:.8rem auto;
     padding: 1rem;
     width: 98%;
-    height: 96%;
+    height: 98%;
     max-width: 600px;
-    border: 2px solid var(--destaque-blue);
-    border-radius: .5rem;
     box-sizing: border-box;
     font-weight: bolder;
     color: var(--white);
     font-size: calc(1rem + 1vw);
+}
+
+@media(min-width:600px) {
+    .calculation__form {
+        font-size: calc(1.4rem);
+    }
+}
+
+@media(min-width:980px) {
+    .calculation__form {
+        width: 50%;
+        font-size: calc(1.4rem);
+        margin-left: 12%;
+    }
 }

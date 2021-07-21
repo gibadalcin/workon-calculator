@@ -1,0 +1,10 @@
+@media(min-width: 1000px) {
+    .result__vector {
+        position: absolute;
+        right: 14%;
+        top: 38%;
+        background: no-repeat bottom right / contain url('../../images/result/smart.png');
+        width: 40%;
+        height: 40%;
+    }
+}

@@ -1,0 +1,33 @@
+html {
+    min-width: 320px;
+    max-width: 1440px;
+    font-size: 1rem;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    background: no-repeat top right / contain url('../../images/result/elipse2.png');
+    border-bottom: 5px solid var(--destaque-blue);
+    width: 100%;
+    height: 98vh;
+    margin: 0 0 1.5% 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+

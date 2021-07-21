@@ -2,5 +2,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: calc(1.2rem + 1.5vw);
+    font-size: calc(1.4rem + 1.2vw);
+    margin-bottom: 1rem;
 }

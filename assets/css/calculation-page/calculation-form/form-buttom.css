@@ -10,5 +10,17 @@
     font-size: calc(1.1rem + 1.5vw);
     border: none;
     border-radius: 0.25rem;
-    transition: 1s;
+    transition: .5s;
+}
+
+.calculate__button:hover {
+    background: var(--dark-red);
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
+@media(min-width:600px) {
+    .calculate__button {
+        font-size: 1.6rem;
+    }
 }

@@ -13,6 +13,11 @@ html {
     background: no-repeat top / cover url('../../images/calculation/background-mobile2.png');
 }
 
+@media(min-width:600px) {
+    .calculation {
+        background: no-repeat 100% / cover url('/assets/images/calculation/background2.png');
+    }
+}
 
 
 
