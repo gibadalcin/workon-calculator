@@ -49,17 +49,17 @@
 
                 <fieldset class="radius">
                     <div class="legends">
-                        <legend>Possui Férias Vencidas?</legend>
+                        <legend >Possui Férias Vencidas?</legend>
                     </div>
                     <div>
-                        <label for="expired__vacations">
-                            <input type="radio" name="expired" value="Sim" id="radio__expired__vacations">
+                        <label for="expired_vacations">
+                            <input type="radio" name="expired" value="Sim" id="expired_vacations">
                             Sim 
                         </label>
                     </div>
                     <div>
-                        <label for="no__expired__vacations"></label>
-                        <input type="radio" name="expired" value="Não" id="no__expired__vacations">
+                        <label for="expired_vacations"></label>
+                        <input type="radio" name="expired" value="Não" id="expired_vacations">
                          Não
                     </div>
                     </label>
@@ -70,20 +70,20 @@
                         <legend>Cumpriu aviso Prévio?</legend>
                     </div>
                     <div>
-                        <label for="prior__notice">
-                            <input type="radio" name="notice" value="Sim" id="prior__notice">
+                        <label for="prior_notice">
+                            <input type="radio" name="notice" value="Sim" id="prior_notice">
                              Sim 
                         </label>
                     </div>
                     <div>
-                        <label for="no__expired__vacations">
-                        <input type="radio" name="notice" value="Não" id="no__prior__notice">
+                        <label for="prior_notice">
+                        <input type="radio" name="notice" value="Não" id="prior_notice">
                          Não
                         </label>
                     </div>
                 </fieldset>
               
-                <button class="calculate__button">Calcular</button>
+                <button id="calculate" class="calculate__button">Calcular</button>
             </form>
             <section class="calculator__image"></section>
             
@@ -91,5 +91,7 @@
         <footer>
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
         </footer>
+
+        <script src="js/form.js"></script>
     </body>
 </html>

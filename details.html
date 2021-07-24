@@ -13,22 +13,122 @@
         <link href="./assets/css/details-page/details-title.css" rel="stylesheet" />
         <link href="./assets/css/details-page/details-elipse.css" rel="stylesheet" />
         <link href="./assets/css/details-page/details-container/details-container.css" rel="stylesheet" />
-        <link href="./assets/css/details-page/details-container/details-buttom.css" rel="stylesheet" />
-        <link href="./assets/css/details-page/details__vector.css" rel="stylesheet" />
+        <link href="./assets/css/details-page/details-container/details-buttons/details-button.css" rel="stylesheet" />
+        <link href="./assets/css/details-page/details-container/details-buttons/details-buttons.css" rel="stylesheet" />
+        <link href="./assets/css/details-page/details-vector.css" rel="stylesheet" />
+        <link href="./assets/css/details-page/details-container/details-table.css" rel="stylesheet" />
 
     </head>
 
     <body>
         <main class="details">
+            
             <div class="details__elipse"">
-                <h2 class="details__title"> Resultado </h2> 
-            </div>
-            <div class="details__container">   
-                
-                <a class="details__buttom" href="/index.html">Salvar</a>
-                <div class="details__vector"></div>         
+                <h2 class="details__title">Detalhes</h2> 
             </div>
             
+            <div class="details__container">   
+                <table class="details__table">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Ref.</th>
+                            <th>Provento</th>
+                            <th>Desconto</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        <tr>
+                            <td>Saldo/Salário</td>
+                            <td>6</td>
+                            <td>R$200,00</td>
+                            <td>-</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Aviso Prévio Indenizado</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>R$1.000,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>13° Salário Proporcional</td>
+                            <td>1/12</td>
+                            <td>R$83,33</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>13° Salário Aviso Prévio</td>
+                            <td>0/12</td>
+                            <td>R$0,00</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Férias Vencidas</td>
+                            <td>0</td>
+                            <td>R$0,00</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Férias Proporcionais</td>
+                            <td>1/12</td>
+                            <td>R$83,33</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>Férias Sobre Aviso Prévio</td>
+                            <td>0/12</td>
+                            <td>R$0,00</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>1/3 Férias</td>
+                            <td>-</td>
+                            <td>R$27,78</td>
+                            <td>-</td>
+                        </tr>
+
+                        <tr>
+                            <td>INSS Salário*</td>
+                            <td>7.5%</td>
+                            <td>-</td>
+                            <td>R$15,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>INSS 13° Salário*</td>
+                            <td>0%</td>
+                            <td>-</td>
+                            <td>R$0,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>INSS 13° Salário*</td>
+                            <td>7.5%</td>
+                            <td>-</td>
+                            <td>R$6,24</td>
+                        </tr>
+
+                        <tr>
+                            <td>Total</td>
+                            <td>-</td>
+                            <td>R$394,44</td>
+                            <td>R$1.021,24</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="details__buttons">
+                    <a class="details__button" href="/index.html">Salvar</a>
+                    <a class="details__button" href="/result.html">Resultado</a>
+                </div>    
+            </div>
         </main>
         <footer>
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>

@@ -1,19 +1,20 @@
-.result__buttom {
+.result__button {
     color: var(--light-gray);
     background: var(--red-gradient);
     padding: .5rem 1rem;
     border-radius: .5rem;
     transition: .5s;
     text-decoration: none;
+    font-size: calc(1.2rem + 1.4vh);
 }
 
-.result__buttom:hover {
+.result__button:hover {
     background: var(--dark-red);
     transform: scale(1.1);
 }
 
 @media(min-width: 1000px) {
-    .result__buttom {
-        margin-left: 15%;
+    .result__button {
+        margin-left: 19%;
     }
 }

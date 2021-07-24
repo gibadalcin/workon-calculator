@@ -1,0 +1,11 @@
+.details__buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+@media screen and (max-width: 480px){
+    .details__buttons{
+        width: 100%;
+    }
+}

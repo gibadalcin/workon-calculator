@@ -1,6 +1,37 @@
 .vector__image {
     background: no-repeat center / contain url('../../../../images/home/vector-icon.png');
-    width: 90%;
-    height: 100%;
+    width:  70%;
+    height: 70%;
+}
+
+
+@media(min-width:470px) {
+    .vector__image {
+        max-width: 60%;
+    }
+}
+
+@media(min-width:670px) {
+    .vector__image {
+        max-width: 60%;
+    }
+}
+
+@media(min-width:760px) {
+    .vector__image {
+        max-width: 90%;
+    }
+}
+
+@media(min-width:1080px) {
+    .vector__image {
+        max-width: 70%;
+    }
+}
+
+@media(min-width:1200px) {
+    .vector__image {
+        max-width: 70%;
+    }
 }
 

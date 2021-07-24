@@ -9,9 +9,15 @@
     font-size: calc(1.4rem + 1.5vw);
     color: var(--light-gray);
     border-radius: .5rem;
-    box-shadow: 0px 1px 1px 1px var(--black);
+    transition: .5s;
 }
 
 .menu__button h2 {
-    color: var(--destaque-blue);
+    color: var(--light-gray);
+}
+
+.menu__button:hover {
+    background-image: linear-gradient(to right, var(--yellow-gradient),var(--red-gradient))  ;
+    cursor:pointer;
+    transform: scale(1.1);
 }

@@ -1,0 +1,26 @@
+.details__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(1rem + 1vh);
+    color: var(--light-gray);
+    background: var(--red-gradient);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: .5s;
+    text-decoration: none;
+    width: 46%;
+    height: 3rem;
+    margin-bottom: 4%;
+}
+
+.details__button:hover {
+    background: var(--dark-red);
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 480px){
+    .details__button{
+        width: 40%;
+    }
+}

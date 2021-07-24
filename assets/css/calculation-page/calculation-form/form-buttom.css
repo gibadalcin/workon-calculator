@@ -10,6 +10,7 @@
     font-size: calc(1.1rem + 1.5vw);
     border: none;
     border-radius: 0.25rem;
+    text-decoration: none;
     transition: .5s;
 }
 

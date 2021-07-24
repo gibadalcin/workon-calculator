@@ -1,8 +1,20 @@
 .details__title {
     display: flex;
-    margin: 2rem 0 0 3.4rem;
+    align-items: center;
+    height: 100%;
+    margin: 2rem auto 0 auto;
     font-size: calc(1.8rem + 2.4vw );
     font-weight: bolder;
-    color: var(--light-gray);
+    color: rgba(0,0,0, 0.7);
+}
+
+@media screen and (max-width: 480px){
+    .details__title{
+        flex-direction: column;
+        color: var(--destaque-blue);
+        padding-bottom: 1rem;
+        border-bottom: 5px solid var(--destaque-blue);
+        width: 80%;
+    }
 }
 
