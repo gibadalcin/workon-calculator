@@ -15,8 +15,10 @@
         <link href="./assets/css/calculation-page/calculation-form/form-labels.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/calculation-form/form-radius.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/calculation-form/form-inputDefaults.css" rel="stylesheet" />
-        <link href="./assets/css/calculation-page/calculation-form/form-buttom.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/calculation-form/form-buttons.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/calculator-image.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/validate-fields.css" rel="stylesheet" />
+        <link href="./assets/css/calculation-page/alert-modal.css" rel="stylesheet" />
 
     </head>
 
@@ -38,7 +40,7 @@
                 <input type="number" id="number_of_dependents" class="input__default" required placeholder="0">
 
                 <label class="labels" for="reason_for_termination">Motivo da Rescisão</label>
-                <select id="reason_for_termination" class="input__default" required>
+                <select id="reason_for_termination" class="input__default " required>
                     <option>Selecione</option>
                     <option>Consensual</option>
                     <option>Pedido de Demissão</option>
@@ -49,7 +51,7 @@
 
                 <fieldset class="radius">
                     <div class="legends">
-                        <legend >Possui Férias Vencidas?</legend>
+                        <legend class="vacation">Possui Férias Vencidas?</legend>
                     </div>
                     <div>
                         <label for="expired_vacations">
@@ -57,41 +59,48 @@
                             Sim 
                         </label>
                     </div>
-                    <div>
+                    <div class="no__vacations">
                         <label for="expired_vacations"></label>
                         <input type="radio" name="expired" value="Não" id="expired_vacations">
-                         Não
+                        Não
                     </div>
                     </label>
                 </fieldset>
 
                 <fieldset class="radius">
                     <div class="legends">
-                        <legend>Cumpriu aviso Prévio?</legend>
+                        <legend class="prior">Cumpriu aviso Prévio?</legend>
                     </div>
                     <div>
                         <label for="prior_notice">
-                            <input type="radio" name="notice" value="Sim" id="prior_notice">
-                             Sim 
+                            <input type="radio" name="notice" value="Sim" id="prior_notice" >
+                            Sim
                         </label>
                     </div>
                     <div>
                         <label for="prior_notice">
                         <input type="radio" name="notice" value="Não" id="prior_notice">
-                         Não
+                        Não
                         </label>
                     </div>
                 </fieldset>
               
-                <button id="calculate" class="calculate__button">Calcular</button>
+                <button type="button" id="calculate" class="calculate__button">Calcular</button>
+                
             </form>
             <section class="calculator__image"></section>
-            
+            <div  type="text" class="alert__modal invisible">
+                <span class="alert__title">Atenção!!!</span>
+                <span class="alert__description">Preencha os campos corretamente</span>
+            </div>
         </main>
+
         <footer>
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
         </footer>
 
         <script src="js/form.js"></script>
+        <script src="js/calculate.js"></script>
+        <script src="js/jquery.js"></script>
     </body>
 </html>

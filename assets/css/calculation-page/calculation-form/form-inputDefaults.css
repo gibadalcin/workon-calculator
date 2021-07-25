@@ -1,4 +1,13 @@
 .input__default {
+    flex-shrink: 0;
+    font-size: calc(.6rem + 1.1vh);
     width: 50%;
     margin: 1rem auto;
+}
+
+
+@media(min-width:500px) {
+    .input__default {
+        font-size: calc(.8rem + 1.4vh);
+    }
 }

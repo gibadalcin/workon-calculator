@@ -25,6 +25,7 @@ footer {
 }
 
 .banner__description,
-.menu__button {
+.menu__button,
+.alert__modal {
     font-family: "base-light-italic";
 }
