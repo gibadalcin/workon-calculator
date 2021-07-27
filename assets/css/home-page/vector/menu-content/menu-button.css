@@ -7,13 +7,13 @@
     width: 50%;
     height: 50%;
     font-size: calc(1.4rem + 1.5vw);
-    color: var(--light-gray);
+    color: var(--light-grey);
     border-radius: .5rem;
     transition: .5s;
 }
 
 .menu__button h2 {
-    color: var(--light-gray);
+    color: var(--light-grey);
 }
 
 .menu__button:hover {

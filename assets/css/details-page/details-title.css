@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     height: 100%;
-    margin: 2rem auto 0 auto;
-    font-size: calc(1.8rem + 2.4vw );
+    margin: 1.5rem auto 0 auto;
+    font-size: calc(1.8rem + 2vw );
     font-weight: bolder;
     color: rgba(0,0,0, 0.7);
 }

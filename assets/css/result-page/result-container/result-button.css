@@ -1,5 +1,5 @@
 .result__button {
-    color: var(--light-gray);
+    color: var(--light-grey);
     background: var(--red-gradient);
     padding: .5rem 1rem;
     border-radius: .5rem;

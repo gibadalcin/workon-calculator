@@ -1,17 +1,32 @@
 
+let calculateButton = document.querySelector("#calculate");
 
-var calculateButton = document.querySelector("#calculate");
- 
+
 calculateButton.addEventListener("click", function(event){
     event.preventDefault();
-    alert("teste")
-    var form = document.querySelector(".calculation__form"); 
-    var information = getData(form);
-    var errors = validateInformation(information);
-    console.log(information);
 
-        addValues(information);
+    let form = document.querySelector(".calculation__form"); 
+    let information = getData(form);
+    
+    resolveDates(information);
+    console.log(dateReferences.days)
+
+    resolveCalculate(information);
+    console.log(salaryValue.lastSalary)
+
+    let dataToSend = toSend();
+
+    let dados = JSON.stringify(dataToSend);
+    sessionStorage.setItem('dataSend', dados );
+
+
+    
+    /*if(validateInformation(information)) {
+        
+        let dateReferences = resolveDate(information.initialDate,information.finalDate);
+
         form.reset();
+    }*/
 })
 
 
@@ -28,45 +43,65 @@ function getData(form){
     return informations;
 }
 
-function validateInformation(information){
-    var alertModal = $(".alert__modal");
-    var alertDescription = $(".alert__description");
-    var errors = [];  
-    if(!validateInitial(information.initialDate)) {
-        alertDescription.text("Informe a data inicial!") ;
-        $('.initial__date').addClass("invalid__information")
-        fadeModal(alertModal);
-    } 
-    if(!validateFinal(information.finalDate)) {
-        alertDescription.text("Informe a data de saída!");
-        fadeModal(alertModal); 
-    }  
-    if(!validateWage(information.wageLast)){
-        alertDescription.text("Informe o valor do último salário!");
-        fadeModal(alertModal);   
+
+
+function resolveDates(information) {
+
+    let dateOn = new Date(information.initialDate);
+    let dateOff = new Date(information.finalDate);
+
+    let monthOn = dateOn.getMonth() + 1;
+    let monthOff = dateOff.getMonth() + 1;
+    let monthDiff = monthOff - monthOn;
+    while(monthDiff > 12) {
+        monthDiff = monthDiff / 12;
     }
-    if(!validateReason(information.reasonTermination)){
-        alertDescription.text("Selecione o motivo da rescisão!");
-        fadeModal(alertModal); 
-    }    
-    if(!validateVacation(information.expiredVacation)) {
-        alertDescription.text("Informe se possui férias vencidas!");
-        fadeModal(alertModal);   
-    }  
-    if(!validatePrior(information.priorNotice)) {
-        alertDescription.text("Informe se cumpriu o aviso prévio!");
-        fadeModal(alertModal); 
-        
-    }
-    return errors;
+    
+        dateReferences = {
+            days: dateOff.getDate() + 1,
+            months: monthDiff
+        }
+    
+    return dateReferences;  
 }
 
-function fadeModal(alertModal) {
-    alertModal.fadeIn(200).removeClass('invisible');
-    setTimeout(function(){
-        alertModal.addClass('invisible').fadeOut(200);
-    },3000);  
+
+function resolveCalculate (information) {  
+
+    salaryValue = {
+        lastSalary : information.wageLast
+    }
+
+    return salaryValue;
 }
+
+
+function toSend() {
+    send = {
+        salaryBalance: dateReferences.days,
+        expiredVacationsBalance: informations.expiredVacation,
+        proportionalMonths: dateReferences.months,
+        compliedPriorNotice: informations.priorNotice ,
+        salaryValue: salaryValue.lastSalary
+    }
+    return send;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
 
 
 

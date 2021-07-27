@@ -1,7 +1,7 @@
 .banner__description {
 
     margin-left: 1rem;
-    color: var(--light-gray);
+    color: var(--light-grey);
     font-size: calc(.8rem + 2vw );
     line-height: calc 1.2rem;
 }

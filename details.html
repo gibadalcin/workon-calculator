@@ -17,7 +17,7 @@
         <link href="./assets/css/details-page/details-container/details-buttons/details-buttons.css" rel="stylesheet" />
         <link href="./assets/css/details-page/details-vector.css" rel="stylesheet" />
         <link href="./assets/css/details-page/details-container/details-table.css" rel="stylesheet" />
-
+        <script type="text/javascript" src="/js/jquery.js"></script>
     </head>
 
     <body>
@@ -27,7 +27,7 @@
                 <h2 class="details__title">Detalhes</h2> 
             </div>
             
-            <div class="details__container">   
+            <form action="" class="details__container">   
                 <table class="details__table">
                     <thead>
                         <tr>
@@ -41,97 +41,100 @@
                     <tbody>
                         <tr class="info__table">
                             <td class="info__event">Saldo/Salário</td>
-                            <td class="info__ref">6</td>
-                            <td class="info__income">R$200,00</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="salary_balance">6</td>
+                            <td class="info__income" id="salary_income">R$200,00</td>
+                            <td class="info__discount" id="salary_discount">-</td>
                         </tr>
             
                         <tr class="info__table">
                             <td class="info__event">Aviso Prévio Indenizado</td>
-                            <td class="info__ref">0</td>
-                            <td class="info__income">-</td>
-                            <td class="info__discont">R$1.000,00</td>
+                            <td class="info__ref" id="notice_balance">0</td>
+                            <td class="info__income" id="notice_income">-</td>
+                            <td class="info__discount" id="notice_discount">R$1.000,00</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">13° Salário Proporcional</td>
-                            <td class="info__ref">1/12</td>
-                            <td class="info__income">R$83,33</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="thirteeenthProporcional_balance">1/12</td>
+                            <td class="info__income" id="thirteeenthProportional_incoming">R$83,33</td>
+                            <td class="info__discount" id="thirteeenthProportional_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">13° Salário Aviso Prévio</td>
-                            <td class="info__ref">0/12</td>
-                            <td class="info__income">R$0,00</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="thirteeenthNotice_balance">0/12</td>
+                            <td class="info__income" id="thirteeenthNotice_incoming">R$0,00</td>
+                            <td class="info__discount" id="thirteeenthNotice_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">Férias Vencidas</td>
-                            <td class="info__ref">0</td>
-                            <td class="info__income">R$0,00</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="expiredVacations_balance">0</td>
+                            <td class="info__income" id="expiredVacations_incoming">R$0,00</td>
+                            <td class="info__discount" id="expiredVacations_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">Férias Proporcionais</td>
-                            <td class="info__ref">1/12</td>
-                            <td class="info__income">R$83,33</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="proportionalVacations_balance">1/12</td>
+                            <td class="info__income" id="proportionalVacations_incoming">R$83,33</td>
+                            <td class="info__discount" id="proportionalVacations_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">Férias Sobre Aviso Prévio</td>
-                            <td class="info__ref">0/12</td>
-                            <td class="info__income">R$0,00</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="vacationsNotice_balance">0/12</td>
+                            <td class="info__income" id="vacationsNotice_incoming">R$0,00</td>
+                            <td class="info__discount" id="vacationsNotice_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">1/3 Férias</td>
-                            <td class="info__ref">-</td>
-                            <td class="info__income">R$27,78</td>
-                            <td class="info__discont">-</td>
+                            <td class="info__ref" id="aThirdVacations_balance">-</td>
+                            <td class="info__income" id="aThirdVacations_incoming">R$27,78</td>
+                            <td class="info__discount" id="aThirdVacations_discount">-</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">INSS Salário*</td>
-                            <td class="info__ref">7.5%</td>
-                            <td class="info__income">-</td>
-                            <td class="info__discont">R$15,00</td>
+                            <td class="info__ref" id="inss_percent">7.5%</td>
+                            <td class="info__income" id="inss_incoming">-</td>
+                            <td class="info__discount" id="inss_discount">R$15,00</td>
                         </tr>
 
                         <tr class="info__table">
                             <td class="info__event">INSS 13° Salário*</td>
-                            <td class="info__ref">0%</td>
-                            <td class="info__income">-</td>
-                            <td class="info__discont">R$0,00</td>
+                            <td class="info__ref" id="thirteeenthInss_percent">7.5%</td>
+                            <td class="info__income" id="thirteeenthInss_incoming" >-</td>
+                            <td class="info__discount" id="thirteeenthInss_discount">R$0,00</td>
                         </tr>
 
                         <tr class="info__table">
-                            <td class="info__event">INSS 13° Salário*</td>
-                            <td class="info__ref">7.5%</td>
-                            <td class="info__income">-</td>
-                            <td class="info__discont">R$6,24</td>
-                        </tr>
-
-                        <tr class="info__table">
-                            <td class="info__event">Total</td>
+                            <td class="info__event" >Total</td>
                             <td class="info__ref">-</td>
-                            <td class="info__income--total">R$394,44</td>
-                            <td class="info__discont">R$1.021,24</td>
+                            <td class="info__income--total" id="total_incoming">R$394,44</td>
+                            <td class="info__discount" id="total_discount">R$1.021,24</td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="details__buttons">
-                    <a class="details__button" href="/index.html">Salvar</a>
+                    <a class="details__button" href="/calculation.html">Salvar</a>
                     <a class="details__button" href="/result.html">Resultado</a>
                 </div>    
-            </div>
+            </form>
         </main>
         <footer>
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
         </footer>
+        
+        <script src="js/form.js"></script>
+        <script src="js/table.js"></script>
+        <script src="js/calculate.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        
+
+        <script>
+             </script>
+        
     </body>
-</html>
+</html> 

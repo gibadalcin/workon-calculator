@@ -19,7 +19,7 @@
         <link href="./assets/css/calculation-page/calculator-image.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/validate-fields.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/alert-modal.css" rel="stylesheet" />
-
+        <script type="text/javascript" src="/js/jquery.js"></script>
     </head>
 
     <body>
@@ -85,7 +85,7 @@
                     </div>
                 </fieldset>
               
-                <button type="button" id="calculate" class="calculate__button">Calcular</button>
+                <button type="submit" id="calculate" class="calculate__button" onclick="window.location.href='/details.html'" >Calcular</button>
                 
             </form>
             <section class="calculator__image"></section>
@@ -99,7 +99,9 @@
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
         </footer>
 
+        <script src="js/table.js"></script>
         <script src="js/form.js"></script>
+        <script src="js/validations.js"></script>
         <script src="js/calculate.js"></script>
         <script src="js/jquery.js"></script>
     </body>
