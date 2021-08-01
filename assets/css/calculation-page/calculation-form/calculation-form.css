@@ -10,7 +10,7 @@
     box-sizing: border-box;
     font-weight: bolder;
     color: var(--white);
-    font-size: calc(.9rem + 1vw);
+    font-size: calc(1rem + 1vw);
 }
 
 @media(min-width:600px) {

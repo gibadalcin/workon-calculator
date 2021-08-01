@@ -1,88 +1,77 @@
-
+//obtendo os dados do form
 let calculateButton = document.querySelector("#calculate");
 
-
 calculateButton.addEventListener("click", function(event){
-    event.preventDefault();
-
+    event.preventDefault(); 
+    
+ //chamando as funções de tratamento de dados 
     let form = document.querySelector(".calculation__form"); 
     let information = getData(form);
-    
-    resolveDates(information);
-    console.log(dateReferences.days)
-
-    resolveCalculate(information);
-    console.log(salaryValue.lastSalary)
-
-    let dataToSend = toSend();
-
-    let dados = JSON.stringify(dataToSend);
-    sessionStorage.setItem('dataSend', dados );
-
-
-    
-    /*if(validateInformation(information)) {
+    let validate = validateInformation(information);
+    let dateReference = resolveDates(information); 
+    let calculate = resolveCalculate(information, dateReference);
+    let dataToSend = toSend(information,calculate, dateReference);
+    if(validate == 0) {
+        calculateButton.onclick = fieldsValidated();
         
-        let dateReferences = resolveDate(information.initialDate,information.finalDate);
-
-        form.reset();
-    }*/
+        //enviando os valores obtidos para exibição na tabela detalhes
+        let dados = JSON.stringify(dataToSend);
+        sessionStorage.setItem('dataSend', dados );
+    }
+    // form.reset();
 })
 
+function fieldsValidated() {
+    window.location.href='/result.html'
+    return;
+}
 
+
+
+
+//obtendo os valores dos inputs
 function getData(form){
      informations = {
         initialDate:form.initial_date.value,
         finalDate:form.final_date.value,
-        wageLast:form.wage_last.value,
+        wageLast: form.wage_last.value,
         numberDependents:form.number_of_dependents.value,
         reasonTermination:form.reason_for_termination.value,
-        expiredVacation: form.expired_vacations.value,
-        priorNotice: form.prior_notice.value  
+        expiredVacation: form.expired.value,
+        priorNotice: form.notice.value
     }
     return informations;
 }
 
-
-
-function resolveDates(information) {
-
-    let dateOn = new Date(information.initialDate);
-    let dateOff = new Date(information.finalDate);
-
-    let monthOn = dateOn.getMonth() + 1;
-    let monthOff = dateOff.getMonth() + 1;
-    let monthDiff = monthOff - monthOn;
-    while(monthDiff > 12) {
-        monthDiff = monthDiff / 12;
-    }
-    
-        dateReferences = {
-            days: dateOff.getDate() + 1,
-            months: monthDiff
-        }
-    
-    return dateReferences;  
-}
-
-
-function resolveCalculate (information) {  
-
-    salaryValue = {
-        lastSalary : information.wageLast
-    }
-
-    return salaryValue;
-}
-
-
-function toSend() {
+//valores que serão enviados para a tabela detalhes
+function toSend(information,calculate, dateReference) {
     send = {
-        salaryBalance: dateReferences.days,
-        expiredVacationsBalance: informations.expiredVacation,
-        proportionalMonths: dateReferences.months,
-        compliedPriorNotice: informations.priorNotice ,
-        salaryValue: salaryValue.lastSalary
+        salaryIncome: calculate.salaryIncome,
+        noticeIncome: calculate.noticeIncome,
+        vacationsNoticeIncome:calculate.vacationsNoticeIncome,
+        VacationsIncome:calculate.VacationsIncome,
+        ThirteeenthIncome:calculate.ThirteeenthIncome,
+        noticeThirteeenthIncome: calculate.noticeThirteeenthIncome,
+        totalEarnings: calculate.earnings,
+        totalDiscounts: calculate.discounts,
+
+        expiredVacationsBalance: calculate.expiredVacation,
+        expiredVacationsIncome:calculate.expiredVacationsIncome,
+        aThirdVacationsIncome:calculate.aThirdVacationsIncome,
+
+        inssSalaryDiscount: calculate.inssSalaryDiscount,
+        inssThirteeenthDiscount: calculate.inssThirteeenthDiscount,
+        
+        salaryBalance: dateReference.days,
+        propMonths: dateReference.propMonths,
+        compliedPriorNotice: calculate.priorNotice,
+        
+        ThirteeenthBalance: dateReference.propMonthsOff,
+        
+        
+        percentSalaryInssDiscount: calculate.percentSalaryInssDiscount,
+        percentThirteeenthInssDiscount: calculate.percentThirteeenthInssDiscount,
+        reasonTermination: information.reasonTermination
     }
     return send;
 }

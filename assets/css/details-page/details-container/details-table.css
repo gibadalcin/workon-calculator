@@ -8,7 +8,7 @@
     width: 70%; 
     height: 100%;
     margin: 2rem 0 2rem 0 ;
-    font-size: cal(1rem + 1vh);
+    font-size: calc(.8rem + 1vh);
 }
 
 .details__table thead{
@@ -47,7 +47,7 @@
 }
 
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 580px){
 
     .details__table {
         width: 90%; 
@@ -82,7 +82,7 @@
 @media screen and (max-width: 900px){
 
     .details__table {
-        width: 90%; 
+        width: 90%;
     }
 
 }

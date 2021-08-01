@@ -1,18 +1,18 @@
 .result__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 90%;
-    height: 50%;
-    margin: auto auto;
+    height: 60%;
+    margin: 0 8%;
     font-weight: bolder;
     font-size: calc(1rem + 2vw );
     color: var(--blue-text);
 }
 
-@media(min-width: 1000px) {
+@media(min-width:1000px) {
     .result__container {
-        align-items:flex-start;
+        width: 60%;
     }
 }

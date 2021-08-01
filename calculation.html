@@ -19,7 +19,8 @@
         <link href="./assets/css/calculation-page/calculator-image.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/validate-fields.css" rel="stylesheet" />
         <link href="./assets/css/calculation-page/alert-modal.css" rel="stylesheet" />
-        <script type="text/javascript" src="/js/jquery.js"></script>
+        
+
     </head>
 
     <body>
@@ -34,7 +35,7 @@
                 <input type="date" id="final_date" class="input__default" required placeholder="DD/MM/AAAA">
 
                 <label class="labels" for="wage_last">Último Salário</label>
-                <input type="number" id="wage_last" class="input__default " required placeholder="R$ 00,00">
+                <input type="currency" id="wage_last" class="input__default" onkeyup="formatCurrency()" required placeholder="0">
 
                 <label class="labels" for="number_of_dependents">Número de Dependentes</label>
                 <input type="number" id="number_of_dependents" class="input__default" required placeholder="0">
@@ -46,25 +47,24 @@
                     <option>Pedido de Demissão</option>
                     <option>Por Justa Causa</option>
                     <option>Sem Justa Causa</option>
-                    <option>Acordo entre as Partes</option>
                 </select>
 
                 <fieldset class="radius">
                     <div class="legends">
                         <legend class="vacation">Possui Férias Vencidas?</legend>
                     </div>
-                    <div>
-                        <label for="expired_vacations">
-                            <input type="radio" name="expired" value="Sim" id="expired_vacations">
-                            Sim 
-                        </label>
+                    <div> 
+                        <input type="radio" name="expired" value="Sim" id="expired_vacations">
+                            <label for="expired_vacations">
+                                Sim 
+                            </label>
                     </div>
                     <div class="no__vacations">
-                        <label for="expired_vacations"></label>
-                        <input type="radio" name="expired" value="Não" id="expired_vacations">
-                        Não
+                        <input type="radio" name="expired" value="Não" checked id="no_expired_vacations">
+                            <label for="no_expired_vacations">
+                                Não
+                            </label>
                     </div>
-                    </label>
                 </fieldset>
 
                 <fieldset class="radius">
@@ -78,19 +78,18 @@
                         </label>
                     </div>
                     <div>
-                        <label for="prior_notice">
-                        <input type="radio" name="notice" value="Não" id="prior_notice">
-                        Não
+                        <label for="no_prior_notice">
+                            <input type="radio" name="notice" value="Não" checked id="no_prior_notice">
+                            Não
                         </label>
                     </div>
                 </fieldset>
               
-                <button type="submit" id="calculate" class="calculate__button" onclick="window.location.href='/details.html'" >Calcular</button>
+                <button type="button" id="calculate" class="calculate__button" onclick="" >Calcular</button>
                 
             </form>
             <section class="calculator__image"></section>
             <div  type="text" class="alert__modal invisible">
-                <span class="alert__title">Atenção!!!</span>
                 <span class="alert__description">Preencha os campos corretamente</span>
             </div>
         </main>
@@ -98,11 +97,11 @@
         <footer>
             <p class="copyright"><span id="copy"> &copy;</span> Copyright Codartche Digital - 2021</p>
         </footer>
-
-        <script src="js/table.js"></script>
-        <script src="js/form.js"></script>
-        <script src="js/validations.js"></script>
-        <script src="js/calculate.js"></script>
+ 
         <script src="js/jquery.js"></script>
-    </body>
+        <script src="js/form.js"></script>
+        <script src="js/calculate.js"></script>
+        <script src="js/helpers.js"></script>
+        <script src="js/validations.js"></script>
+        </body>
 </html>

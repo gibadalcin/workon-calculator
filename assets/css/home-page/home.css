@@ -8,7 +8,7 @@ html {
     display: flex;
     flex-direction:column-reverse;
     border-bottom: 5px solid var(--destaque-blue);
-    width: 99%;
+    width: 100%;
     margin: 0 0 1.5% 0;
 }
 

@@ -5,7 +5,7 @@
     border-radius: .5rem;
     transition: .5s;
     text-decoration: none;
-    font-size: calc(1.2rem + 1.4vh);
+    font-size: calc(.8rem + 1.4vh);
 }
 
 .result__button:hover {
@@ -15,6 +15,6 @@
 
 @media(min-width: 1000px) {
     .result__button {
-        margin-left: 19%;
+        font-size: calc(1.4rem + 1.4vh);
     }
 }

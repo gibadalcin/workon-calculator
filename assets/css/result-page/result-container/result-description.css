@@ -1,4 +1,12 @@
 .result__description {
+    width: 90%;
     text-align: center;
-    line-height: 1.6rem;
+    line-height: 2.6rem;
+    font-size: calc(1.2rem + 2vw );
+}
+
+@media(min-width:1000px) {
+    .result__description {
+        font-size: calc(1.2rem + 1.6vw );
+    }
 }

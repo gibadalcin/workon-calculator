@@ -3,8 +3,3 @@
     font-size: calc(2rem + 2vw );
 }
 
-@media(min-width: 1000px) {
-    .result__value {
-        margin-left: 20%;
-    }
-}
