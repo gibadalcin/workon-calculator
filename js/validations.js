@@ -67,7 +67,6 @@ function validatePrior(priorNotice) {
 }
 
 
-
 function validateInformation(information) {
 
     let alertModal = $(".alert__modal");

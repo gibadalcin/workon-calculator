@@ -12,7 +12,6 @@ function resolveCalculate(information, dateReference) {
     console.log(formatSalary);
     let salary = formatSalary;
 
-
     //cálculo saldo salário 
     let lastSalary = salary * (days / 30);
 

@@ -26,9 +26,6 @@ function fieldsValidated() {
     return;
 }
 
-
-
-
 //obtendo os valores dos inputs
 function getData(form){
      informations = {
