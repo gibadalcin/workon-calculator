@@ -6,7 +6,7 @@
 ---
 
 ### Linguagens e tecnologias utilizadas
-<image src="https://user-images.githubusercontent.com/69020289/127957771-e06eb5db-98c7-404d-abcc-8545d0e48764.png" width = "130px">_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957777-0e0b2327-322e-4200-bef7-03a570605e90.png" width = "120px" >_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957786-6113ab9a-b71d-44cc-87b5-90d6bfdba421.png" width = "170px"> _&nbsp;&nbsp;_<image src="https://user-images.githubusercontent.com/69020289/127957785-0e1a0e06-1084-482b-9fd2-95b08cc90c01.png" width = "130px">_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957780-1f46a213-87a5-42b0-ab77-08eb7951cf27.png" width = "256px"> 
+<image src="https://user-images.githubusercontent.com/69020289/127957771-e06eb5db-98c7-404d-abcc-8545d0e48764.png" width = "100px">_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957777-0e0b2327-322e-4200-bef7-03a570605e90.png" width = "90px" >_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957786-6113ab9a-b71d-44cc-87b5-90d6bfdba421.png" width = "120px"> _&nbsp;&nbsp;_<image src="https://user-images.githubusercontent.com/69020289/127957785-0e1a0e06-1084-482b-9fd2-95b08cc90c01.png" width = "100px">_&nbsp;&nbsp;_ <image src="https://user-images.githubusercontent.com/69020289/127957780-1f46a213-87a5-42b0-ab77-08eb7951cf27.png" width = "190px"> 
 
  
 ---
