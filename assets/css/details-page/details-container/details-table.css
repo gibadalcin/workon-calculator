@@ -47,7 +47,7 @@
 }
 
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 600px){
 
     .details__table {
         width: 90%; 
@@ -61,8 +61,6 @@
         text-align: center;
         padding-left: 0;
     }
-
-    
 
     .details__table tbody td {
         display: flex; 
@@ -80,11 +78,15 @@
 }
 
 @media screen and (max-width: 900px){
-
     .details__table {
         width: 90%;
     }
+}
 
+@media screen and (min-width: 1600px){
+    .details__table {
+        width: 60%;
+    }
 }
     
     

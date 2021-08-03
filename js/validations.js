@@ -104,10 +104,7 @@ function validateInformation(information) {
         fadeModal(alertModal);
         count++;
     }
-
     return count;
-
-
 }
 
 

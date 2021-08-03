@@ -11,6 +11,7 @@ calculateButton.addEventListener("click", function(event){
     let dateReference = resolveDates(information); 
     let calculate = resolveCalculate(information, dateReference);
     let dataToSend = toSend(information,calculate, dateReference);
+    
     if(validate == 0) {
         calculateButton.onclick = fieldsValidated();
         

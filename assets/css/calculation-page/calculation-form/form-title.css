@@ -3,5 +3,11 @@
     justify-content: center;
     width: 100%;
     font-size: calc(1.4rem + 1.2vw);
-    margin-bottom: 1rem;
+}
+
+
+@media(min-width:1600px) {
+    .calculation__title {
+        font-size: calc(2.4rem + 1.4vh);
+    }
 }

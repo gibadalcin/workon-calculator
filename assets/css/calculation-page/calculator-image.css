@@ -8,3 +8,10 @@
         height: 100%;
     }
 }
+
+
+@media(min-width:1600px) {
+    .calculator__image {
+       margin-right: 3%;
+    }
+}

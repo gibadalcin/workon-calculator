@@ -2,7 +2,6 @@ let detailsTable = $(".details__table");
 
 //obtendo os valores inseridos nos inputs e enviados via sessionStorage
 let dataReceived = JSON.parse(sessionStorage.getItem('dataSend'));  
-console.log(dataReceived);
 
 //chamando a função de inserção dos valores
 addValues(dataReceived);

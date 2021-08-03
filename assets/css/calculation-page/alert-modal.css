@@ -38,3 +38,15 @@
     }
 }
 
+@media(min-width:1600px) {
+    .alert__modal {
+        font-size: calc(1.4rem + 1.4vh);
+        width: calc(28rem - 1vh);
+    }
+
+    .alert__description { 
+        font-size: calc(1rem + 1vh);
+       
+    }
+}
+

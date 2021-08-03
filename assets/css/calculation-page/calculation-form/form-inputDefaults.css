@@ -11,3 +11,9 @@
         font-size: calc(.8rem + 1.4vh);
     }
 }
+
+@media(min-width:1600px) {
+    .input__default {
+        font-size: calc(1.2rem + 1.4vh);
+    }
+}

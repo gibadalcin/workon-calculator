@@ -8,3 +8,11 @@
 .legends {
     width: 50%;
 }
+
+
+@media(min-width:1600px) {
+    .labels,
+    .legends {
+        font-size: calc(2rem);
+    }
+}
