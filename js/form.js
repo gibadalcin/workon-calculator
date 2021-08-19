@@ -48,7 +48,7 @@ function toSend(information,calculate, dateReference) {
         noticeIncome: calculate.noticeIncome,
         vacationsNoticeIncome:calculate.vacationsNoticeIncome,
         VacationsIncome:calculate.VacationsIncome,
-        ThirteeenthIncome:calculate.ThirteeenthIncome,
+        thirteeenthIncome:calculate.ThirteeenthIncome,
         noticeThirteeenthIncome: calculate.noticeThirteeenthIncome,
         totalEarnings: calculate.earnings,
         totalDiscounts: calculate.discounts,
@@ -64,7 +64,7 @@ function toSend(information,calculate, dateReference) {
         propMonths: dateReference.propMonths,
         compliedPriorNotice: calculate.priorNotice,
         
-        ThirteeenthBalance: dateReference.propMonthsOff,
+        thirteeenthBalance: dateReference.propMonthsOff,
         
         
         percentSalaryInssDiscount: calculate.percentSalaryInssDiscount,

@@ -96,8 +96,8 @@ function addVacations(dataReceived) {
 
 //inserindo dados ao 13° salário
 function add13salaryValues(dataReceived) {
-    let ThirteeenthBalance = dataReceived.ThirteeenthBalance;
-    let ThirteeenthIncome = dataReceived.ThirteeenthIncome;
+    let thirteeenthBalance = dataReceived.thirteeenthBalance;
+    let thirteeenthIncome = dataReceived.thirteeenthIncome;
     let noticeThirteeenthIncome = dataReceived.noticeThirteeenthIncome;
     let inssThirteeenthDiscount = dataReceived.inssThirteeenthDiscount;
     let percentThirteeenthDiscount = dataReceived.percentThirteeenthInssDiscount;
@@ -106,7 +106,7 @@ function add13salaryValues(dataReceived) {
     let get13NoticeBalanceField = $('#thirteeenthNotice_balance');
     let get13NoticeIncomeField = $('#thirteeenthNotice_income');
 
-    ThirteeenthBalance != null ? get13NoticeBalanceField.text(ThirteeenthBalance + '/12'):
+    thirteeenthBalance != null ? get13NoticeBalanceField.text(thirteeenthBalance + '/12'):
     get13NoticeBalanceField.text("-");
 
     noticeThirteeenthIncome != null ? get13NoticeIncomeField.text('R$ ' + noticeThirteeenthIncome.toFixed(2)):
@@ -116,10 +116,10 @@ function add13salaryValues(dataReceived) {
     let get13ProportionalBalanceField = $('#thirteeenthProportional_balance');
     let get13ProportionalIncomeField = $('#thirteeenthProportional_income')
 
-    ThirteeenthBalance != null ? get13ProportionalBalanceField.text(ThirteeenthBalance + '/12'):
+    thirteeenthBalance != null ? get13ProportionalBalanceField.text(thirteeenthBalance + '/12'):
     get13ProportionalBalanceField.text("-");
 
-    ThirteeenthIncome != null ? get13ProportionalIncomeField.text('R$ ' + ThirteeenthIncome.toFixed(2)):
+    thirteeenthIncome != null ? get13ProportionalIncomeField.text('R$ ' + thirteeenthIncome.toFixed(2)):
     get13ProportionalIncomeField.text("-");
 
 
