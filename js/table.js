@@ -70,7 +70,7 @@ function addExpiredVacations(dataReceived) {
 //inserindo dados férias/proporcional/aviso prévio
 function addVacations(dataReceived) {
     let vacationsNoticeIncome = dataReceived.vacationsNoticeIncome;
-    let VacationsIncome = dataReceived.VacationsIncome;
+    let vacationsIncome = dataReceived.vacationsIncome;
     let propMonths = dataReceived.propMonths;
 
     let getProportionalVacationsBalanceField = $('#proportionalVacations_balance');
@@ -79,15 +79,16 @@ function addVacations(dataReceived) {
     propMonths != null ? getProportionalVacationsBalanceField.text(propMonths + '/12'):
     getProportionalVacationsBalanceField.text("-");
 
-    VacationsIncome != null ? getProportionalVacationsIncomeField.text('R$ ' + VacationsIncome.toFixed(2)):
+    vacationsIncome != null ? getProportionalVacationsIncomeField.text('R$ ' + vacationsIncome.toFixed(2)):
     getProportionalVacationsIncomeField.text("-");
 
 
 
     let getVacationsNoticeBalanceField = $('#vacationsNotice_balance');
     let getVacationsNoticeIncomeField = $('#vacationsNotice_income');
+    let propMonthsNotice = dataReceived.thirteeenthBalance;
     
-    propMonths != null ? getVacationsNoticeBalanceField.text(propMonths + '/12'):
+    propMonthsNotice != null ? getVacationsNoticeBalanceField.text(propMonthsNotice + '/12'):
     getVacationsNoticeBalanceField.text("-");
 
     vacationsNoticeIncome != null ? getVacationsNoticeIncomeField.text('R$ ' + vacationsNoticeIncome.toFixed(2)):

@@ -15,7 +15,7 @@ calculateButton.addEventListener("click", function(event){
     if(validate == 0) {
         calculateButton.onclick = fieldsValidated();
         
-        //enviando os valores obtidos para exibição na tabela detalhes
+        //enviando os valores obtidos para exibição na tabela 
         let dados = JSON.stringify(dataToSend);
         sessionStorage.setItem('dataSend', dados );
     }
@@ -41,13 +41,13 @@ function getData(form){
     return informations;
 }
 
-//valores que serão enviados para a tabela detalhes
+//valores que serão enviados para a tabela 
 function toSend(information,calculate, dateReference) {
     send = {
         salaryIncome: calculate.salaryIncome,
         noticeIncome: calculate.noticeIncome,
         vacationsNoticeIncome:calculate.vacationsNoticeIncome,
-        VacationsIncome:calculate.VacationsIncome,
+        vacationsIncome:calculate.VacationsIncome,
         thirteeenthIncome:calculate.ThirteeenthIncome,
         noticeThirteeenthIncome: calculate.noticeThirteeenthIncome,
         totalEarnings: calculate.earnings,

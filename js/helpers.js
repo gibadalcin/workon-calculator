@@ -86,9 +86,9 @@ function resolveDates(information) {
         dateOn: dateOnBuilder,
         dateOff: dateOffBuilder,
         currentDate: currentDateBuilder,
-        propMonths: months,
+        propMonths: monthsOff,
         years: years,
-        propMonthsOff: monthsOff,
+        propMonthsOff: months,
         days: getDaysMonth,
     }
     return dateReferences;
