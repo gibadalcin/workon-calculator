@@ -94,8 +94,6 @@ function resolveDates(information) {
     return dateReferences;
 }
 
-console.log(monthsOff)
-
 //formatando o input de valor do salário
 function formatCurrency() {
     var element = document.getElementById('wage_last');
