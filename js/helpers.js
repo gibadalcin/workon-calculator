@@ -76,7 +76,7 @@ function resolveDates(information) {
         if(diff > 12 || diffYear > 1) diff = 12;
         return diff;
     }
-    console.log(monthsOff)
+
     function yearsDiff(getYearsOn,getYearsOff) {
         let yearsDiff = getYearsOff - getYearsOn;
         return yearsDiff;
