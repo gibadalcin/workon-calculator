@@ -1,112 +1,137 @@
+let invalidField = 'invalid__fields';
+let dateDefault = "";
 
-
-function validateInitial(initialDate) {
-    if (initialDate != "") {
-        $("#initial_date").removeClass('invalid__fields');
+function validateInitial(initialDate,dateOn,currentDate) {
+    let getDateField = $("#initial_date");
+    
+    if (initialDate != "" && dateOn < currentDate) {
+        getDateField.removeClass(invalidField);
         return true;
     }
     else {
-        $("#initial_date").addClass('invalid__fields');
+        getDateField.addClass(invalidField);
+        getDateField.val(dateDefault);
         return false;
     }
 }
 
-function validateFinal(finalDate) {
-    if (finalDate != "") {
-        $("#final_date").removeClass('invalid__fields');
+function validateFinal(finalDate,dateOff,dateOn,currentDate) {
+    let getDateOffField = $("#final_date");
+
+    if (finalDate != "" && dateOff > dateOn && dateOff <= currentDate) {
+        getDateOffField.removeClass(invalidField);
         return true;
     }
     else {
-        $("#final_date").addClass('invalid__fields');
+        getDateOffField.addClass(invalidField);
+        getDateOffField.val(dateDefault);
         return false;
     }
 }
 
 function validateWage(wageLast) {
+    let getWageField = $("#wage_last");
+
     if (wageLast != "") {
-        $("#wage_last").removeClass('invalid__fields');
+        getWageField.removeClass(invalidField);
         return true;
     }
     else {
-        $("#wage_last").addClass('invalid__fields');
+        getWageField.addClass(invalidField);
         return false;
     }
 }
 
 function validateReason(reasonTermination) {
+    let getReasonField = $("#reason_for_termination");
+
     if (reasonTermination != "Selecione") {
-        $("#reason_for_termination").removeClass('invalid__fields');
+        getReasonField.removeClass(invalidField);
         return true;
     }
     else {
-        $("#reason_for_termination").addClass('invalid__fields');
+        getReasonField.addClass(invalidField);
         return false;
     }
 }
 
 function validateVacation(expiredVacation) {
+    let getVacationField = $(".vacation");
+
     if (expiredVacation != "") {
-        $(".vacation").removeClass('invalid__fields');
+        getVacationField.removeClass(invalidField);
         return true;
     }
     else {
-        $(".vacation").addClass('invalid__fields');
+        getVacationField.addClass(invalidField);
         return false;
     }
 }
 
 function validatePrior(priorNotice) {
+    let getNoticeField = $(".prior");
+
     if (priorNotice != "") {
-        $(".prior").removeClass('invalid__fields');
+        getNoticeField.removeClass(invalidField);
         return true;
     }
     else {
-        $(".prior").addClass('invalid__fields');
+        getNoticeField.addClass(invalidField);
         return false;
     }
 }
 
 
-function validateInformation(information) {
+function validateInformation(information,dateReference) {
 
     let alertModal = $(".alert__modal");
     let alertDescription = $(".alert__description");
+    let addInvalidClass = "invalid__information";
+    let initialDateClass = $('.initial__date');
+    let dateOn = dateReference.dateOn;
+    let dateOff = dateReference.dateOff;
+    let currentDate = dateReference.currentDate;
+    let initialDate = information.initialDate;
+    let finalDate = information.finalDate;
+    let wageLast = information.wageLast;
+    let reason = information.reasonTermination;
+    let vacation = information.expiredVacation;
+    let prior = information.priorNotice;
     let count = 0;
-
-    if (!validateInitial(information.initialDate)) {
+    console.log(dateOn,dateOff,currentDate)
+    if (!validateInitial(initialDate,dateOn,currentDate)) {
         alertDescription.text("Informe a data inicial!");
-        $('.initial__date').addClass("invalid__information")
+        initialDateClass.addClass(addInvalidClass);
         fadeModal(alertModal);
         count++;
     }
-    else if (!validateFinal(information.finalDate)) {
+    else if (!validateFinal(finalDate, dateOff,dateOn,currentDate)) {
         alertDescription.text("Informe a data de saída!");
         fadeModal(alertModal);
         count++;
     }
-    else if (!validateWage(information.wageLast)) {
+    else if (!validateWage(wageLast)) {
         alertDescription.text("Informe o valor do último salário!");
         fadeModal(alertModal);
         count++;
     }
-    else if (!validateReason(information.reasonTermination)) {
+    else if (!validateReason(reason)) {
         alertDescription.text("Selecione o motivo da rescisão!");
         fadeModal(alertModal);
         count++;
     }
-    else if (!validateVacation(information.expiredVacation)) {
+    else if (!validateVacation(vacation)) {
         alertDescription.text("Informe se possui férias vencidas!");
         fadeModal(alertModal);
         count++;
     }
-    else if (!validatePrior(information.priorNotice)) {
+    else if (!validatePrior(prior)) {
         alertDescription.text("Informe se cumpriu o aviso prévio!");
         fadeModal(alertModal);
         count++;
     }
     return count;
 }
-
 
 function fadeModal(alertModal) {
     alertModal.fadeIn(200).addClass('invisible');

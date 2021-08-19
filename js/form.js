@@ -7,8 +7,8 @@ calculateButton.addEventListener("click", function(event){
  //chamando as funções de tratamento de dados 
     let form = document.querySelector(".calculation__form"); 
     let information = getData(form);
-    let validate = validateInformation(information);
     let dateReference = resolveDates(information); 
+    let validate = validateInformation(information,dateReference);
     let calculate = resolveCalculate(information, dateReference);
     let dataToSend = toSend(information,calculate, dateReference);
     

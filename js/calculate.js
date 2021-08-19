@@ -1,6 +1,7 @@
 
 function resolveCalculate(information, dateReference) {
     let propMonths = dateReference.propMonths;
+    
     let days = dateReference.days;
     let years = dateReference.years;
     let wageLast = information.wageLast;
@@ -9,7 +10,6 @@ function resolveCalculate(information, dateReference) {
     let expiredVacation = information.expiredVacation;
     //valor do último salário
     let formatSalary = parseFloat(wageLast);
-    console.log(formatSalary);
     let salary = formatSalary;
 
     //cálculo saldo salário 
