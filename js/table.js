@@ -21,10 +21,10 @@ function addSalaryValues(dataReceived) {
     let getSalaryBalanceField = $('#salary_balance');
     let getSalaryIncomeField = $('#salary_income');
 
-    salaryBalance != null ? getSalaryBalanceField.text(salaryBalance + '/31'):
+    salaryBalance != 0 ? getSalaryBalanceField.text(salaryBalance + '/31'):
     getSalaryBalanceField.text("-");
 
-    salaryIncome != null ? getSalaryIncomeField.text('R$ ' + salaryIncome.toFixed(2)):
+    salaryIncome != 0 ? getSalaryIncomeField.text('R$ ' + salaryIncome.toFixed(2)):
     getSalaryIncomeField.text("-");
 
 }
@@ -35,10 +35,11 @@ function addNoticeValues(dataReceived) {
     let compliedPriorNotice = dataReceived.compliedPriorNotice;
 
     let getNoticeBalanceField = $('#notice_balance');
-    let getNoticeincomeField = $('#notice_income');
+    let getNoticeIncomeField = $('#notice_income');
 
     getNoticeBalanceField.text(compliedPriorNotice);
-    if(compliedPriorNotice == "Sim") getNoticeincomeField.text('R$ ' + noticeIncome.toFixed(2));
+    if(compliedPriorNotice == "Sim") getNoticeIncomeField.text('R$ ' + noticeIncome.toFixed(2));
+    else getNoticeIncomeField.text('-');
 }
 
 //inserindo dados férias vencidas + 1/3
@@ -76,10 +77,10 @@ function addVacations(dataReceived) {
     let getProportionalVacationsBalanceField = $('#proportionalVacations_balance');
     let getProportionalVacationsIncomeField = $('#proportionalVacations_income');
 
-    propMonths != null ? getProportionalVacationsBalanceField.text(propMonths + '/12'):
+    propMonths != 0 ? getProportionalVacationsBalanceField.text(propMonths + '/12'):
     getProportionalVacationsBalanceField.text("-");
 
-    vacationsIncome != null ? getProportionalVacationsIncomeField.text('R$ ' + vacationsIncome.toFixed(2)):
+    vacationsIncome != 0 ? getProportionalVacationsIncomeField.text('R$ ' + vacationsIncome.toFixed(2)):
     getProportionalVacationsIncomeField.text("-");
 
 
@@ -88,10 +89,10 @@ function addVacations(dataReceived) {
     let getVacationsNoticeIncomeField = $('#vacationsNotice_income');
     let propMonthsNotice = dataReceived.thirteeenthBalance;
     
-    propMonthsNotice != null ? getVacationsNoticeBalanceField.text(propMonthsNotice + '/12'):
+    propMonthsNotice != 0 ? getVacationsNoticeBalanceField.text(propMonthsNotice + '/12'):
     getVacationsNoticeBalanceField.text("-");
 
-    vacationsNoticeIncome != null ? getVacationsNoticeIncomeField.text('R$ ' + vacationsNoticeIncome.toFixed(2)):
+    vacationsNoticeIncome != 0 ? getVacationsNoticeIncomeField.text('R$ ' + vacationsNoticeIncome.toFixed(2)):
     getVacationsNoticeIncomeField.text("-");
 }
 
@@ -107,30 +108,30 @@ function add13salaryValues(dataReceived) {
     let get13NoticeBalanceField = $('#thirteeenthNotice_balance');
     let get13NoticeIncomeField = $('#thirteeenthNotice_income');
 
-    thirteeenthBalance != null ? get13NoticeBalanceField.text(thirteeenthBalance + '/12'):
+    thirteeenthBalance != 0 ? get13NoticeBalanceField.text(thirteeenthBalance + '/12'):
     get13NoticeBalanceField.text("-");
 
-    noticeThirteeenthIncome != null ? get13NoticeIncomeField.text('R$ ' + noticeThirteeenthIncome.toFixed(2)):
+    noticeThirteeenthIncome != 0 ? get13NoticeIncomeField.text('R$ ' + noticeThirteeenthIncome.toFixed(2)):
     get13NoticeIncomeField.text("-");
 
 
     let get13ProportionalBalanceField = $('#thirteeenthProportional_balance');
     let get13ProportionalIncomeField = $('#thirteeenthProportional_income')
 
-    thirteeenthBalance != null ? get13ProportionalBalanceField.text(thirteeenthBalance + '/12'):
+    thirteeenthBalance != 0 ? get13ProportionalBalanceField.text(thirteeenthBalance + '/12'):
     get13ProportionalBalanceField.text("-");
 
-    thirteeenthIncome != null ? get13ProportionalIncomeField.text('R$ ' + thirteeenthIncome.toFixed(2)):
+    thirteeenthIncome != 0 ? get13ProportionalIncomeField.text('R$ ' + thirteeenthIncome.toFixed(2)):
     get13ProportionalIncomeField.text("-");
 
 
     let get13InssPercentField = $('#thirteeenthInss_percent');
     let get13InssDiscountField = $('#thirteeenthInss_discount');
     
-    percentThirteeenthDiscount != null ? get13InssPercentField.text(percentThirteeenthDiscount + '%'):
+    percentThirteeenthDiscount != 0 ? get13InssPercentField.text(percentThirteeenthDiscount + '%'):
     get13InssPercentField.text("-");
 
-    inssThirteeenthDiscount != null ? get13InssDiscountField.text('R$ ' + inssThirteeenthDiscount.toFixed(2)):
+    inssThirteeenthDiscount != 0 ? get13InssDiscountField.text('R$ ' + inssThirteeenthDiscount.toFixed(2)):
     get13InssDiscountField.text("-");
 
 }
@@ -143,10 +144,10 @@ function addInssValues(dataReceived) {
     let getInssPercentField = $('#inss_percent');
     let getInssDiscountField = $('#inss_discount');
 
-    percentSalaryDiscount != null ? getInssPercentField.text(percentSalaryDiscount + '%'):
+    percentSalaryDiscount != 0 ? getInssPercentField.text(percentSalaryDiscount + '%'):
     getInssPercentField.text("-");
 
-    inssSalaryDiscount != null ? getInssDiscountField.text('R$ ' + inssSalaryDiscount.toFixed(2)):
+    inssSalaryDiscount != 0 ? getInssDiscountField.text('R$ ' + inssSalaryDiscount.toFixed(2)):
     getInssDiscountField.text("-");
 
 }
@@ -159,10 +160,10 @@ function addTotalValues(dataReceived) {
     let gatTotalIncomeField = $('#total_income');
     let gatTotalDiscountField = $('#total_discount');
 
-    totalEarnings != null ? gatTotalIncomeField.text('R$ ' + totalEarnings.toFixed(2)):
+    totalEarnings != 0 ? gatTotalIncomeField.text('R$ ' + totalEarnings.toFixed(2)):
     gatTotalIncomeField.text('-');
 
-    totalDiscounts != null ? gatTotalDiscountField.text('R$ ' + totalDiscounts.toFixed(2)):
+    totalDiscounts != 0 ? gatTotalDiscountField.text('R$ ' + totalDiscounts.toFixed(2)):
     gatTotalDiscountField.text("-");
 }
 

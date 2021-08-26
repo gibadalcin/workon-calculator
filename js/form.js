@@ -4,7 +4,7 @@ let calculateButton = document.querySelector("#calculate");
 calculateButton.addEventListener("click", function(event){
     event.preventDefault(); 
     
- //chamando as funções de tratamento de dados 
+    //chamando as funções de tratamento de dados 
     let form = document.querySelector(".calculation__form"); 
     let information = getData(form);
     let dateReference = resolveDates(information); 

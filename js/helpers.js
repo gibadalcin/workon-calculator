@@ -1,24 +1,32 @@
 
 //manipulando datas
 function resolveDates(information) {
+    const zeroBase = 0;
+    const dayMonthBase = 14;
+    const monthsBase = 12;
 
     let getDateOn = new Date(information.initialDate);
     let dateOn = resolveUTC(getDateOn);
     let getMonthsOn = dateOn.month;
     let getYearOn = dateOn.year;
-    let dateOnBuilder = builderDate(dateOn);
+    //let dateOnBuilder = builderDate(dateOn);
+    let timeOn = getDateOn.getTime();
     
     let getDateOff = new Date(information.finalDate);
     let dateOff = resolveUTC(getDateOff);
     let getDaysMonth = dateOff.day;
     let getMonthsOff = dateOff.month;
     let getYearOff = dateOff.year;
-    let dateOffBuilder = builderDate(dateOff);
+    //let dateOffBuilder = builderDate(dateOff);
+    let timeOff = getDateOff.getTime();
 
+    
+    
     let months = monthsDiff(getMonthsOn,getMonthsOff,getDaysMonth);
     let monthsOff = monthsOffDiff(getMonthsOn,getMonthsOff,months,getYearOn,getYearOff);
-    let years = yearsDiff(getYearOn,getYearOff);
+    let years = yearsDiff(getYearOn,getYearOff,monthsOff,getDaysMonth);
 
+    //obtendo dias,mes e ano dos inputs e convertendo para o fuso horário local
     function resolveUTC (getDate) {
         date = {
             day : getDate.getUTCDate(),
@@ -30,8 +38,10 @@ function resolveDates(information) {
 
     let getCurrentDate = new Date(Date.now());
     let currentDate = resolveCurrent(getCurrentDate);
-    let currentDateBuilder = builderDate(currentDate);
-
+    //let currentDateBuilder = builderDate(currentDate);
+    let timeCurrent = getCurrentDate.getTime();
+    
+    //obtendo a data atual já convertida para fuso horario local
     function resolveCurrent (getDate) {
         date = {
             day : getDate.getDate(),
@@ -41,31 +51,34 @@ function resolveDates(information) {
         return date;
     }
 
+    //montando a data para exibição
     function builderDate(builder) {    
         return date = ("0" + builder.day).slice(-2) +'/'+ ("0" + builder.month).slice(-2) +'/'+ builder.year;
     }
 
+    //obtendo a diferença do número de meses entre a data de início e a data de saída
     function monthsDiff(getMonthsOn,getMonthsOff,getDaysMonth) {
 
         let diff = getMonthsOff - getMonthsOn;
         let monthsDiff = getMonthsOff;
         
-        if (diff > 12) {
-            diff /= 12;
+        if (diff > monthsBase) {
+            diff /= monthsBase;
             monthsDiff += diff;
         }else {
             monthsDiff = monthsDiff;
         }
 
-        if (getDaysMonth > 14) monthsDiff = monthsDiff + 1;
+        if (getDaysMonth > dayMonthBase) monthsDiff = monthsDiff + 1;
         else monthsDiff;
         
         return monthsDiff;
     }
 
+    //obtendo o número de meses decorridos no ano em vigor
     function monthsOffDiff(getMonthsOn,getMonthsOff, months,getYearOn,getYearOff) {
-        let diff = 0;
-        let diffOn = 12 - getMonthsOn;
+        let diff = zeroBase;
+        let diffOn = monthsBase - getMonthsOn;
         let diffYear = getYearOff - getYearOn;
         
         diffOn++;
@@ -73,19 +86,29 @@ function resolveDates(information) {
         else diff = months - getMonthsOn;
 
        
-        if(diff > 12 || diffYear > 1) diff = 12;
+        if(diff > monthsBase || diffYear > 1) diff = diff - monthsBase;
         return diff;
     }
 
-    function yearsDiff(getYearsOn,getYearsOff) {
-        let yearsDiff = getYearsOff - getYearsOn;
-        return yearsDiff;
+    //obtendo o número de anos
+    function yearsDiff(getYearOn,getYearOff,months) {
+        let diff = zeroBase;
+        let diffOn = monthsBase - getMonthsOn;
+        let diffYear = getYearOff - getYearOn;
+        
+        diffOn++;
+        if(getYearOn != getYearOff) diff = getMonthsOff + diffOn; 
+        else diff = months - getMonthsOn;
+
+        if(diff > monthsBase || diffYear > 1) diffYear;
+        else diffYear = 0;
+        return diffYear;
     }
     
     dateReferences = {
-        dateOn: dateOnBuilder,
-        dateOff: dateOffBuilder,
-        currentDate: currentDateBuilder,
+        dateOn: timeOn,
+        dateOff: timeOff,
+        currentDate: timeCurrent,
         propMonths: monthsOff,
         years: years,
         propMonthsOff: months,

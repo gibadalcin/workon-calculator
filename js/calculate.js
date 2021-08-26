@@ -1,238 +1,366 @@
 
 function resolveCalculate(information, dateReference) {
+    const yes = "Sim";
+    const not = "Não";
+
+    const zeroBase = 0;
+    const dayMonthBase = 30;
+    const monthsBase = 12;
+
+    const salaryRangeBase = 0;
+    const salaryRangeOne = 1100;
+    const salaryRangeTwo = 2203.48;
+    const salaryRangeThree = 3305.22;
+
+    const percentRangeOne = 0.075;
+    const percentRangeTwo = 0.09;
+    const percentRangeThree = 0.12;
+    const percentRangeFour = 0.14;
+
+    const percentShowOne = 7.5;
+    const percentShowTwo = 9;
+    const percentShowThree = 12;
+    const percentShowFour = 14;
+
+    const reasonOne = "Acordo";
+    const reasonTwo = "Pedido de Demissão";
+    const reasonThree = "Por Justa Causa";
+    const reasonFour = "Sem Justa Causa";
+
     let propMonths = dateReference.propMonths;
-    
     let days = dateReference.days;
     let years = dateReference.years;
-    let wageLast = information.wageLast;
+    
     let reasonTermination = information.reasonTermination;
-    let priorNotice = information.priorNotice;
-    let expiredVacation = information.expiredVacation;
-    //valor do último salário
-    let formatSalary = parseFloat(wageLast);
-    let salary = formatSalary;
+    let salary = lastSalaryFormat(information.wageLast);
+    let lastSalary = salaryBalance(salary,days);
 
+    let objectNotice = notice(information.priorNotice,years,reasonTermination);
+    let noticeStatus = objectNotice.status;
+    let noticeValue = objectNotice.value; 
+
+    let objectExpired = expiredVacations(information.expiredVacation,years,salary);
+    let expiredAThird = objectExpired.aThird;
+    let expiredOneVacation = objectExpired.oneVacation;
+    let expiredVacationStatus = objectExpired.vacationStatus; 
+
+    let objectProportional = propVacations(reasonTermination,salary,expiredAThird, propMonths,noticeStatus);
+    let proportionalVacations = objectProportional.vacations;
+    let proportionalNoticeVacations = objectProportional.noticeVacations;
+
+    let objectProportional13 = prop13(propMonths,lastSalary,noticeStatus,reasonTermination);
+    let proportional13Value = objectProportional13.value;
+    let proportional13Notice = objectProportional13.notice;
+
+    let objectPercent = inssBalance(lastSalary);
+    let percentInssAdjusts = objectPercent.adjusts;
+    let percentInssShow = objectPercent.salaryShow;
+
+    let objectPercent13 = inss13(proportional13Value);
+    let percent13InssAdjusts = objectPercent13.adjusts;
+    let percent13InssShow = objectPercent13.salary13Show;
+    
+    let objectTotal = total(reasonTermination);
+    let earning = objectTotal.earning;
+    let discount = objectTotal.discount;
+
+    // formatando valor do último salário
+    function lastSalaryFormat(wageLast) {
+        let formatSalary = parseFloat(wageLast);
+        return formatSalary;
+    }
+   
     //cálculo saldo salário 
-    let lastSalary = salary * (days / 30);
+    function salaryBalance(salary,days) {
+        let lastSalary = salary * (days / dayMonthBase);
+        return lastSalary;
+    }
 
     //cálculo do aviso prévio indenizado
-    let addMonths = 0;
-    let avi;
-    if (priorNotice == "Não") {
-        for (var i = 0; i < years; i++) {
-            addMonths = addMonths + 3;
-        };
-        priorNotice = "Sim";
-        avi = salary * ((30 + addMonths) / 30);
-        if (reasonTermination == "Pedido de Demissão"
-            || reasonTermination == "Por Justa Causa") {
-            priorNotice = "Não";
-            avi = 0;
-        }
-    } else {
-        priorNotice = "Não";
-        avi = 0;
-    }
-
-    //cálculo 1/3 de férias e férias vencidas
-    let oneThreeVacations;
-    let oneExpiredVacations;
-    if (expiredVacation == "Sim" && years >= 1) {
-        oneThreeVacations = (salary * 1 / 3);
-        oneExpiredVacations = salary + (oneThreeVacations);
-        expiredVacation = "Sim";
-    } else {
-        oneThreeVacations = 0;
-        oneExpiredVacations = 0;
-        expiredVacation = "Não";
-    }
-
-    //cálculo férias proporcionais e sobre aviso prévio
-    //cálculo 13° proporcional e sobre aviso prévio
-    let proportionalVacations;
-    let proportionalNoticeVacations;
-    let thirteeenthProportional;
-    let thirteeenthNotice;
-
-    switch (reasonTermination) {
-        case "Por Justa Causa":
-            proportionalVacations = 0;
-            proportionalNoticeVacations = 0;
-            thirteeenthProportional = 0;
-            thirteeenthNotice = 0;
-            break;
-
-        case "Pedido de Demissão":
-            proportionalVacations = propMonths / 12 * (salary + (oneThreeVacations));
-            proportionalNoticeVacations = 0;
-            thirteeenthProportional = (propMonths / 12) * salary;
-            thirteeenthNotice = 0;
-            break;
-
-        case "Sem Justa Causa":
-            proportionalVacations = propMonths / 12 * (salary + (oneThreeVacations));
-            proportionalNoticeVacations = 1 / 12 * (salary + (oneThreeVacations));
-            thirteeenthProportional = (propMonths / 12) * salary;
-            if (priorNotice == "Sim") {
-                thirteeenthNotice = (1 / 12) * salary;
-            } else {
-                proportionalNoticeVacations = 0;
-                thirteeenthNotice = 0;
+    function notice(status,years,reason) {
+        let addMonths = zeroBase;
+        let value = zeroBase;
+        if (status == not) {
+            for (var i = 0; i < years; i++) {
+                addMonths += 3;
+            };
+            status = yes;
+            value = salary * ((dayMonthBase + addMonths) / dayMonthBase);
+            if (reason == reasonTwo || reason == reasonThree ) {
+                status = not;
+                value;
             }
-            break;
-        case "Consensual":
-            proportionalVacations = propMonths / 12 * (salary + (oneThreeVacations));
-            proportionalNoticeVacations = 1 / 12 * (salary + (oneThreeVacations));
-            thirteeenthProportional = (propMonths / 12) * salary;
-            thirteeenthNotice = (1 / 12) * salary;
-            break;
+        } else {
+            if (status == yes) {
+                value = salary * ((dayMonthBase + addMonths) / dayMonthBase);
+            }
+            status = not;
+            value;
+        }
+
+        result = {
+            value: value,
+            status: status
+        }
+        return result;
+    }
+    
+    //cálculo 1/3 de férias e férias vencidas
+    function expiredVacations(status, years, salary) {
+        let aThird = zeroBase;
+        let oneVacation = zeroBase;
+        if (status == yes && years >= 1) {
+            aThird = (salary * 1 / 3);
+            oneVacation = salary + (aThird);
+            status = yes;
+        } else {
+            aThird = zeroBase;
+            oneVacation = zeroBase;
+            status = not;
+        }
+
+        result = {
+            aThird: aThird,
+            oneVacation: oneVacation,
+            vacationStatus: status
+        }
+        return result;
+    }
+
+    //cálculo férias proporcionais e ferias sobre aviso prévio
+    function propVacations(reason,salary,aThird,months,status) {
+        let vacation = zeroBase;
+        let notice = zeroBase;
+        switch(reason) {
+            case reasonOne:
+                    vacation = months / monthsBase * (salary + (aThird));
+                    if(status == yes) notice = 1 / monthsBase * (salary + (aThird));
+                    else notice;
+                    break;
+
+            case reasonTwo:
+                    vacation = months / monthsBase * (salary + (aThird));
+                    notice;
+                    break;
+
+            case reasonThree:
+                    vacation;
+                    notice;
+                    break;
+
+            case reasonFour:
+                    vacation = months / monthsBase * (salary + (aThird));
+                    if(status == yes) notice = 1 / monthsBase * (salary + (aThird));
+                    else notice;
+                    break;
+        }
+        result = {
+            vacations: vacation,
+            noticeVacations: notice
+        }
+        return result;
+    }
+   
+    //cálculo 13° proporcional e sobre aviso prévio
+    function prop13(months,salary,status,reason) {
+        let proportional = zeroBase;
+        let notice = zeroBase;
+        switch (reason) {
+            case reasonOne:
+                proportional = (months / monthsBase) * salary;
+                notice = (1 / monthsBase) * salary;
+                break;
+
+            case reasonTwo:
+                proportional = (months / monthsBase) * salary;
+                notice;
+                break;
+
+            case reasonThree:
+                proportional;
+                notice;
+                break;
+    
+            case reasonFour:   
+                if (status == yes) {
+                    proportional = (months / monthsBase) * salary;
+                    notice = (1 / monthsBase) * salary;
+                } else{
+                    proportional = (months / monthsBase) * salary;;
+                    notice;
+                }
+                break;
+        }
+        result = {
+            value: proportional,
+            notice: notice
+        }
+        return result;
     }
 
     //cálculo desconto INSS sobre saldo salário e percentual sobre faixa salarial
-    let inssAdjusts;
-    let percentCalculateSalary;
-    let percentSalaryShow;
+    function inssBalance(salary) {
+        let percentCalculate = zeroBase;
+        let percentShow = zeroBase;
+        let adjusts = zeroBase;
+        if (salary > salaryRangeBase && salary <= salaryRangeOne) {
+            percentCalculate = percentRangeOne;
+            percentShow = percentShowOne;
+            adjusts = percentCalculate * salary;
+        }
+        else if (salary > salaryRangeOne && salary <= salaryRangeTwo) {
+            percentCalculate = percentRangeTwo;
+            percentShow = percentShowTwo;
+            adjusts = percentCalculate * salary;
+        }
+        else if (salary > salaryRangeTwo && salary <= salaryRangeThree) {
+            percentCalculate = percentRangeThree;
+            percentShow = percentShowThree;
+            adjusts = percentCalculate * salary;
+        }
+        else if (salary > salaryRangeThree) {
+            percentCalculate = percentRangeFour;
+            percentShow = percentShowFour;
+            adjusts = percentCalculate * salary;
+        } else adjusts = zeroBase;
 
-    if (lastSalary > 0 && lastSalary <= 1100) {
-        percentCalculateSalary = 0.075;
-        percentSalaryShow = 7.5;
-        inssAdjusts = percentCalculateSalary * lastSalary;
+        result = {
+            salaryShow: percentShow,
+            adjusts: adjusts
+        }
+        return result;
     }
-    else if (lastSalary > 1100 && lastSalary <= 2203.48) {
-        percentCalculateSalary = 0.09;
-        percentSalaryShow = 9;
-        inssAdjusts = percentCalculateSalary * lastSalary;
-    }
-    else if (lastSalary > 2203.48 && lastSalary <= 3305.22) {
-        percentCalculateSalary = 0.12;
-        percentSalaryShow = 12;
-        inssAdjusts = percentCalculateSalary * lastSalary;
-    }
-    else if (lastSalary > 3305.22) {
-        percentCalculateSalary = 0.14;
-        percentSalaryShow = 14;
-        inssAdjusts = percentCalculateSalary * lastSalary;
-    } else inssAdjusts = 0;
-
 
     //cálculo desconto INSS sobre 13° salário e percentual sobre faixa salarial
-    let inssThirteeenthAdjusts;
-    let percentCalculateThirteeenth;
-    let percentThirteeenthShow;
+    function inss13(proportional) {
+        let percentCalculate = zeroBase;
+        let percentShow = zeroBase;
+        let adjusts = zeroBase;
+        if (proportional > salaryRangeBase && proportional <= salaryRangeOne) {
+            percentCalculate = percentRangeOne;
+            percentShow = percentShowOne;
+            adjusts = percentCalculate * proportional;
+        }
+        else if (proportional > salaryRangeOne && proportional <= salaryRangeTwo) {
+            percentCalculate = percentRangeTwo;
+            percentShow = percentShowTwo;
+            adjusts = percentCalculate * proportional;
+        }
+        else if (proportional > salaryRangeTwo && proportional <= salaryRangeThree) {
+            percentCalculate = percentRangeThree;
+            percentShow = percentShowThree;
+            adjusts = percentCalculate * proportional;
+        }
+        else if (proportional > salaryRangeThree) {
+            percentCalculate = percentRangeFour;
+            percentShow = percentShowFour;
+            adjusts = percentCalculate * proportional;
+        } else adjusts;
 
-    if (thirteeenthProportional > 0 && thirteeenthProportional <= 1100) {
-        percentCalculateThirteeenth = 0.075;
-        percentThirteeenthShow = 7.5;
-        inssThirteeenthAdjusts = percentCalculateThirteeenth * thirteeenthProportional;
+        result = {
+            salary13Show: percentShow,
+            adjusts: adjusts
+        }
+        return result;
     }
-    else if (thirteeenthProportional > 1100 && thirteeenthProportional <= 2203.48) {
-        percentCalculateThirteeenth = 0.09;
-        percentThirteeenthShow = 9;
-        inssThirteeenthAdjusts = percentCalculateThirteeenth * thirteeenthProportional;
-    }
-    else if (thirteeenthProportional > 2203.48 && thirteeenthProportional <= 3305.22) {
-        percentCalculateThirteeenth = 0.12;
-        percentThirteeenthShow = 12;
-        inssThirteeenthAdjusts = percentCalculateThirteeenth * thirteeenthProportional;
-    }
-    else if (thirteeenthProportional > 3305.22) {
-        percentCalculateThirteeenth = 0.14;
-        percentThirteeenthShow = 14;
-        inssThirteeenthAdjusts = percentCalculateThirteeenth * thirteeenthProportional;
-    } else inssThirteeenthAdjusts = 0;
-
 
     //cálculo total de proventos e descontos
-    let earning;
-    let discount;
-    switch (reasonTermination) {
+    function total(reason) {
+        let earning = zeroBase;
+        let discount = zeroBase;
+        switch (reason) {
+            case reasonOne:
+                earning = (
+                    lastSalary
+                    + noticeValue
+                    + proportionalNoticeVacations
+                    + proportionalVacations
+                    + proportional13Value
+                    + proportional13Notice
+                    + expiredOneVacation
+                    + expiredAThird
+                )
+                discount = (
+                    percentInssAdjusts
+                    + percent13InssAdjusts
+                )
+                earning = earning - discount;
+                break;
 
-        case "Consensual":
-            earning = (
-                lastSalary
-                + avi
-                + proportionalNoticeVacations
-                + proportionalVacations
-                + thirteeenthProportional
-                + thirteeenthNotice
-                + oneExpiredVacations
-                + oneThreeVacations
-            )
-            discount = (
-                inssAdjusts
-                + inssThirteeenthAdjusts
-            )
-            earning = earning - discount;
-            break;
+            case reasonTwo:
+                earning = (
+                    lastSalary
+                    + expiredOneVacation
+                    + expiredAThird
+                    + proportionalVacations
+                    + proportional13Value
+                )
+                discount = (
+                    percentInssAdjusts
+                    + percent13InssAdjusts
+                )
+                earning = earning - discount;
+                break;
 
-        case "Sem Justa Causa":
-            earning = (
-                lastSalary
-                + avi
-                + proportionalNoticeVacations
-                + proportionalVacations
-                + thirteeenthProportional
-                + thirteeenthNotice
-                + oneExpiredVacations
-                + oneThreeVacations
-            )
-            discount = (
-                inssAdjusts
-                + inssThirteeenthAdjusts
-            )
-            earning = earning - discount;
-            break;
+            case reasonThree:
+                    earning = (
+                        lastSalary
+                        + expiredOneVacation
+                        + expiredAThird
+                    )
+                    discount = (
+                        percentInssAdjusts
+                        + percent13InssAdjusts
+                    )
+                    earning = earning - discount;
+                    break;
 
-        case "Pedido de Demissão":
-            earning = (
-                lastSalary
-                + oneExpiredVacations
-                + oneThreeVacations
-                + proportionalVacations
-                + thirteeenthProportional
-            )
-            discount = (
-                inssAdjusts
-                + inssThirteeenthAdjusts
-            )
-            earning = earning - discount;
-            break;
-
-        case "Por Justa Causa":
-            earning = (
-                lastSalary
-                + oneExpiredVacations
-                + oneThreeVacations
-            )
-            discount = (
-                inssAdjusts
-                + inssThirteeenthAdjusts
-            )
-            earning = earning - discount;
-            break;
+            case reasonFour:
+                earning = (
+                    lastSalary
+                    + noticeValue
+                    + proportionalNoticeVacations
+                    + proportionalVacations
+                    + proportional13Value
+                    + proportional13Notice
+                    + expiredOneVacation
+                    + expiredAThird
+                )
+                discount = (
+                    percentInssAdjusts
+                    + percent13InssAdjusts
+                )
+                earning = earning - discount;
+                break;
+        } 
+        result = {
+            earning: earning, 
+            discount: discount
+        }
+        return result;
     }
 
     salaryValues = {
         salaryIncome: lastSalary,
-        noticeIncome: avi,
+        noticeIncome: noticeValue,
         vacationsNoticeIncome: proportionalNoticeVacations,
         VacationsIncome: proportionalVacations,
-        ThirteeenthIncome: thirteeenthProportional,
-        noticeThirteeenthIncome: thirteeenthNotice,
+        ThirteeenthIncome: proportional13Value,
+        noticeThirteeenthIncome: proportional13Notice,
 
         earnings: earning,
         discounts: discount,
 
-        expiredVacationsIncome: oneExpiredVacations,
-        aThirdVacationsIncome: oneThreeVacations,
+        expiredVacationsIncome: expiredOneVacation,
+        aThirdVacationsIncome: expiredAThird,
 
-        inssSalaryDiscount: inssAdjusts,
-        inssThirteeenthDiscount: inssThirteeenthAdjusts,
+        inssSalaryDiscount: percentInssAdjusts,
+        inssThirteeenthDiscount: percent13InssAdjusts,
 
-        percentSalaryInssDiscount: percentSalaryShow,
-        percentThirteeenthInssDiscount: percentThirteeenthShow,
-        priorNotice: priorNotice,
-        expiredVacation: expiredVacation
+        percentSalaryInssDiscount: percentInssShow,
+        percentThirteeenthInssDiscount: percent13InssShow,
+        priorNotice: noticeStatus,
+        expiredVacation: expiredVacationStatus
     }
     return salaryValues;
 

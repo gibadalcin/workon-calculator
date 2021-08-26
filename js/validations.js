@@ -81,13 +81,14 @@ function validatePrior(priorNotice) {
     }
 }
 
-
 function validateInformation(information,dateReference) {
 
     let alertModal = $(".alert__modal");
     let alertDescription = $(".alert__description");
     let addInvalidClass = "invalid__information";
     let initialDateClass = $('.initial__date');
+    let count = 0;
+
     let dateOn = dateReference.dateOn;
     let dateOff = dateReference.dateOff;
     let currentDate = dateReference.currentDate;
@@ -97,8 +98,7 @@ function validateInformation(information,dateReference) {
     let reason = information.reasonTermination;
     let vacation = information.expiredVacation;
     let prior = information.priorNotice;
-    let count = 0;
-    console.log(dateOn,dateOff,currentDate)
+    
     if (!validateInitial(initialDate,dateOn,currentDate)) {
         alertDescription.text("Informe a data inicial!");
         initialDateClass.addClass(addInvalidClass);

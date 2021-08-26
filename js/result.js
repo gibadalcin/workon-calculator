@@ -4,7 +4,8 @@ addValues(dataReceived);
 
 function addValues(dataReceived) {
     let totalEarnings = dataReceived.totalEarnings;
-
-    $('.result__value').text('R$ ' + totalEarnings.toFixed(2))
+    let result = $('.result__value');
+    
+    result.text('R$ ' + totalEarnings.toFixed(2))
 }
 
