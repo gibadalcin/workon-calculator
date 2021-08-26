@@ -83,8 +83,6 @@ function addVacations(dataReceived) {
     vacationsIncome != 0 ? getProportionalVacationsIncomeField.text('R$ ' + vacationsIncome.toFixed(2)):
     getProportionalVacationsIncomeField.text("-");
 
-
-
     let getVacationsNoticeBalanceField = $('#vacationsNotice_balance');
     let getVacationsNoticeIncomeField = $('#vacationsNotice_income');
     let propMonthsNotice = dataReceived.thirteeenthBalance;
