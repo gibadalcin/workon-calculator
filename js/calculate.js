@@ -28,6 +28,7 @@ function resolveCalculate(information, dateReference) {
     const reasonFour = "Sem Justa Causa";
 
     let propMonths = dateReference.propMonths;
+    let propMonthsCurrent = dateReference.propMonthsOff;
     let days = dateReference.days;
     let years = dateReference.years;
     
@@ -48,7 +49,7 @@ function resolveCalculate(information, dateReference) {
     let proportionalVacations = objectProportional.vacations;
     let proportionalNoticeVacations = objectProportional.noticeVacations;
 
-    let objectProportional13 = prop13(propMonths,lastSalary,noticeStatus,reasonTermination);
+    let objectProportional13 = prop13(propMonthsCurrent,salary,noticeStatus,reasonTermination);
     let proportional13Value = objectProportional13.value;
     let proportional13Notice = objectProportional13.notice;
 
@@ -64,6 +65,7 @@ function resolveCalculate(information, dateReference) {
     let earning = objectTotal.earning;
     let discount = objectTotal.discount;
 
+    console.log(propMonths)
     // formatando valor do último salário
     function lastSalaryFormat(wageLast) {
         let formatSalary = parseFloat(wageLast);

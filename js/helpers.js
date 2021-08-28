@@ -22,8 +22,8 @@ function resolveDates(information) {
 
     
     
-    let months = monthsDiff(getMonthsOn,getMonthsOff,getDaysMonth);
-    let monthsOff = monthsOffDiff(getMonthsOn,getMonthsOff,months,getYearOn,getYearOff);
+    let monthsOff = monthsOffDiff(getMonthsOn,getMonthsOff,getDaysMonth);
+    let months = monthsDiff(getMonthsOn,getMonthsOff,monthsOff,getYearOn,getYearOff);
     let years = yearsDiff(getYearOn,getYearOff,monthsOff,getDaysMonth);
 
     //obtendo dias,mes e ano dos inputs e convertendo para o fuso horário local
@@ -57,7 +57,7 @@ function resolveDates(information) {
     }
 
     //obtendo a diferença do número de meses entre a data de início e a data de saída
-    function monthsDiff(getMonthsOn,getMonthsOff,getDaysMonth) {
+    function monthsOffDiff(getMonthsOn,getMonthsOff,getDaysMonth) {
 
         let diff = getMonthsOff - getMonthsOn;
         let monthsDiff = getMonthsOff;
@@ -76,7 +76,7 @@ function resolveDates(information) {
     }
 
     //obtendo o número de meses decorridos no ano em vigor
-    function monthsOffDiff(getMonthsOn,getMonthsOff, months,getYearOn,getYearOff) {
+    function monthsDiff(getMonthsOn,getMonthsOff, months,getYearOn,getYearOff) {
         let diff = zeroBase;
         let diffOn = monthsBase - getMonthsOn;
         let diffYear = getYearOff - getYearOn;
@@ -109,9 +109,9 @@ function resolveDates(information) {
         dateOn: timeOn,
         dateOff: timeOff,
         currentDate: timeCurrent,
-        propMonths: monthsOff,
+        propMonths: months,
         years: years,
-        propMonthsOff: months,
+        propMonthsOff: monthsOff,
         days: getDaysMonth,
     }
     return dateReferences;
