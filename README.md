@@ -13,8 +13,10 @@
 
 ### Material de estudo 
 + Software com fins acadêmicos, desenvolvido para a prática das linguagens e tecnologias utilizadas, com foco no trabalho em equipe e evolução do aprendizado.
+
+---  
 ### Layout
----
+
 <div style="display: flex;">
 
 |     Home Page Desk    | Mobile |
