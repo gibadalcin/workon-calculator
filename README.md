@@ -1,4 +1,4 @@
-# WorkalculatiON
+# Workon
 
 ### Descrição
 + Pensado para facilitar a vida de pessoas que buscam uma solução simples e eficiente para cálculos trabalhistas. 
